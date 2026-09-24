@@ -1,18 +1,34 @@
 # Personal Command Center
 
-Private finance + life tracker built as a **Google Apps Script** web app backed by **Google Sheets** and Drive.
+A password-gated **Google Apps Script** web app for UAE + Philippines personal finance and life admin — backed by **Google Sheets** and Drive. Built for phone and desktop.
 
-This GitHub repo is meant to be **public-safe**: real Sheet / Drive / script IDs and allowlisted emails stay on your machine only.
+This repo is **public-safe**: real Sheet / Drive / script IDs and allowlisted emails stay in local-only files (`Config.gs`, `.clasp.json`).
 
-## What it does
+## Interface
 
-- Overview KPIs (liquid cash, goals, investments, net cash vs cards)
-- Accounts, transactions, transfers, remittances
-- Credit cards as **debt** (not cash you have)
-- Loans, budgets, goals, rent cheques, installments, subscriptions
-- Documents / credentials / phones vault views
-- Live FX via Sheets `GOOGLEFINANCE` (Settings hold offline fallbacks only)
-- Sync app state ↔ Sheets; weekly backup hooks in Apps Script
+- **Login gate** — app password unlock; allowlisted Google accounts only
+- **Overview dashboard** — KPI cards, cashflow chart, account balances chart, reminders, budgets/goals
+- **Drag-and-drop Overview layout** — show/hide panels; rearrange what you see first
+- **Money workspace** — accounts, transactions, transfers, remittances with live FX awareness
+- **Obligations** — credit cards, loans (lent / owed / monthly), rent cheques, installments, subscriptions
+- **Vault views** — documents (expiry radar), credentials, phones
+- **Settings** — base currency, FX fallbacks, employment/gratuity inputs, dropdown catalogs, sample profiles
+- **Sheets sync status** — load/sync banners, version stamp, retry when Google is slow
+
+## Features
+
+- **Liquid cash vs debt** — checking/savings/e-wallets count as cash; credit cards count as money you **owe**, not money you have
+- **Net cash position** — liquid + allotted goals + investments/MP2 − credit due
+- **Goals allotment** — funding a goal pulls cash out of liquid so free-to-spend stays honest
+- **Multi-currency** — AED / PHP / USD with live `GOOGLEFINANCE` FX (Settings keep offline fallbacks)
+- **Remittances** — AED→PHP sends with fees, effective rate, and automatic account balance updates
+- **Loans ledger** — receivables, payables, monthly outs, payments/charges, person-level offsets
+- **UAE rent cheques** — uncleared cheque totals and due reminders
+- **Installments & subscriptions** — monthly obligation rollups on Overview
+- **UAE gratuity (EOSB) estimate** — from basic salary + employment start date
+- **Document compliance** — expiry badges; optional daily email radar for docs, cheques, loans
+- **Drive uploads & backups** — photo/PDF upload to Drive; spreadsheet backup hook
+- **Email allowlist** — only configured Google accounts can open the web app
 
 ## Secrets (local only)
 
@@ -65,18 +81,18 @@ Run `shareAccessWithAllowedUsers` once (as owner) so allowlisted accounts can ed
 
 ## Money model (credit cards)
 
-- Account type `credit` is **never** counted in Liquid Cash.
-- Negative card balances feed **Credit Due** (money you owe).
-- **Net cash position** = liquid + allotted goals + investments/MP2 − credit due.
-- Goal funding cannot debit a credit card.
+- Account type `credit` is **never** counted in Liquid Cash
+- Negative card balances feed **Credit Due** (what you owe)
+- **Net cash position** = liquid + allotted goals + investments/MP2 − credit due
+- Goal funding cannot debit a credit card
 
 Store card debt as a **negative** balance (UI shows “due”).
 
 ## Contributing / feedback
 
-- **Issues** are welcome — use them to highlight bugs or suggest fixes.
-- Do **not** push to `main`. Open a pull request from a fork/branch; `main` is protected.
-- Keep secrets out of PRs (no real Sheet/Drive/script IDs or emails).
+- **Issues** are welcome — use them to highlight bugs or suggest fixes
+- Do **not** push to `main`. Open a pull request from a fork/branch; `main` is protected
+- Keep secrets out of PRs (no real Sheet/Drive/script IDs or emails)
 
 ## Versioning & ship
 
