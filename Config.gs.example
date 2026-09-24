@@ -1,0 +1,21 @@
+/**
+ * SAMPLE ONLY — safe to commit.
+ * Copy to Config.gs (gitignored) and replace every dummy value with yours:
+ *
+ *   copy Config.gs.example Config.gs
+ *
+ * clasp pushes Config.gs to Apps Script; it does not push this .example file.
+ */
+var CONFIG = {
+  SPREADSHEET_ID: 'YOUR_GOOGLE_SHEETS_ID',
+  DRIVE_ROOT_FOLDER_ID: 'YOUR_DRIVE_ROOT_FOLDER_ID',
+  PHOTOS_FOLDER_ID: 'YOUR_PHOTOS_FOLDER_ID',
+  BACKUPS_FOLDER_ID: 'YOUR_BACKUPS_FOLDER_ID',
+  PHOTOS_FOLDER_URL: 'https://drive.google.com/drive/folders/YOUR_PHOTOS_FOLDER_ID',
+  BACKUPS_FOLDER_URL: 'https://drive.google.com/drive/folders/YOUR_BACKUPS_FOLDER_ID',
+  DRIVE_ROOT_URL: 'https://drive.google.com/drive/folders/YOUR_DRIVE_ROOT_FOLDER_ID',
+  ALLOWED_EMAILS: [
+    'you@example.com',
+    'backup@example.com'
+  ]
+};

@@ -1,0 +1,14 @@
+.clasp.json
+.clasp.json.bak
+.clasp.json.current
+Config.gs
+node_modules/
+.DS_Store
+*.log
+.clasprc.json
+.env
+.env.*
+*.pem
+credentials.json
+.cursor/
+*.tmp
